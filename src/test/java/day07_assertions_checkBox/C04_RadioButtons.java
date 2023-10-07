@@ -46,5 +46,4 @@ public class C04_RadioButtons {
                 && !femaleRadioB.isSelected()
                 && !customRadioB.isSelected());
     }
-
 }

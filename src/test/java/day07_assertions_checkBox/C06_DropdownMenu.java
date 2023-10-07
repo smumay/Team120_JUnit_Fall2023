@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
 
 public class C06_DropdownMenu extends TestBase {
-
     @Test
     public void test01(){
         driver.get("https://www.amazon.com");
