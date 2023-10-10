@@ -10,28 +10,27 @@ public class C03_FileUploadTesti extends TestBase {
 
     @Test
     public void fileUploadTesti(){
-
-        //1.https://the-internet.herokuapp.com/upload adresine gidelim
+        //https://the-internet.herokuapp.com/upload adresine gidelim
         driver.get("https://the-internet.herokuapp.com/upload");
-
-        //2.chooseFile butonuna basalim
-        //3.text.txt dosyayi secelim.
-        WebElement butonElementi = driver.findElement(By.id("file-upload"));
-        String dinamikDosyaYolu = System.getProperty("user.dir")+ "/src/test/java/day11_fileTestleri_Waits/text.txt";
-
-        butonElementi.sendKeys(dinamikDosyaYolu);
-
-        //4.Upload butonuna basalim.
+        //chooseFile butonuna basalim
+        //text.txt dosyasini secelim.
+        /*
+            insan olarak dosya secimi icin
+            chooseFile butonuna bastiktan sonra
+            acilan windows dosya penceresinden
+            istedigimiz dosyayi secip yukleriz.
+            Selenium'da otomasyon ile bu islemi yapmak icin
+            chooseFile butonu locate edilip,
+            bu webelement'e sendKeys(yuklenecekDosyaninDosyaYolu); yapilir
+         */
+        WebElement uploadButtonElementi = driver.findElement(By.id("file-upload"));
+        String dinamikDosyaYolu = System.getProperty("user.dir") + "/src/test/java/day11_fileTestleri_Waits/text.txt";
+        uploadButtonElementi.sendKeys(dinamikDosyaYolu);
+        //Upload butonuna basalim.
         driver.findElement(By.id("file-submit")).click();
-        //5.“File Uploaded!” textinin goruntulendigini test edelim.
-
-
-       WebElement fileUploadElementi = driver.findElement(By.tagName("h3"));
-        Assert.assertTrue(fileUploadElementi.isDisplayed());
-
-
-
-
+        //“File Uploaded!” textinin goruntulendigini test edelim.
+        WebElement fileUploadedElementi = driver.findElement(By.tagName("h3"));
+        Assert.assertTrue(fileUploadedElementi.isDisplayed());
 
     }
 }
